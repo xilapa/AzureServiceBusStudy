@@ -1,10 +1,6 @@
 using Worker;
 
-IHost host = Host.CreateDefaultBuilder(args)
-    .ConfigureServices(services =>
-    {
-        services.AddHostedService<WorkerExample>();
-    })
-    .Build();
+var cousera = new ServiceBus();
 
-host.Run();
+await cousera.StartConsume();
+await cousera.SendLoop();
