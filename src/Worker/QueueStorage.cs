@@ -9,7 +9,8 @@ public sealed class QueueStorage
 
     public QueueStorage()
     {
-        var connectionString = "DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;AccountName=xilapastoragelearn;AccountKey=s9NrLnpob8ggm5wOfZR2vZ4THwE8S/vJtRt94eOGTyLobJidlBia7GstHaSUheuIM4zMMm9R/zPu+AStnfN8gw==;BlobEndpoint=https://xilapastoragelearn.blob.core.windows.net/;FileEndpoint=https://xilapastoragelearn.file.core.windows.net/;QueueEndpoint=https://xilapastoragelearn.queue.core.windows.net/;TableEndpoint=https://xilapastoragelearn.table.core.windows.net/";
+        // https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azurite?tabs=visual-studio-code#install-azurite
+        var connectionString = "UseDevelopmentStorage=true";
         _queueClient = new QueueClient(connectionString, "my-queue", new QueueClientOptions
         {
             Retry = { MaxRetries = 5, Mode = RetryMode.Exponential},
