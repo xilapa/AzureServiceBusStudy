@@ -1,4 +1,5 @@
 using Worker;
 
-var queueStorage = new QueueStorage();
-await queueStorage.Start();
+var eventHub = new EventHub();
+eventHub.Send();
+await eventHub.Consume();
